@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="titleContainer"><h1>Meu Carrinho</h1></div>
+  <div class="divider"></div>
+  <div class="produtosContainer">
+    <div class="produtoCard" *ngFor="let item of products">
+      <img class="imgCard" src="{{item.urlImg}}">
+      <div class="nomeProdutoContainer">
+        <label class="nomeProduto">{{item.name}}</label>
+        <label class="valorProdutoMobile">{{item.valor | currency:'BRL':true }}</label>
+      </div>
+      <div class="quantidadeContainer">
+        <button><mat-icon (click)="increment()">keyboard_arrow_up</mat-icon></button>
+        <label class="quantidade">{{item.quantidade}}</label>
+        <button><mat-icon (click)="decrement()">keyboard_arrow_down</mat-icon></button>
+      </div>
+      <label class="valorProduto">{{item.valor | currency:'BRL':true }}</label>
+      <mat-icon class="deleteIcon" (click)="deleteItem(item.idItem)">delete_forever</mat-icon>
+    </div>
+  </div>
+  <div class="infoContainer">
+    <label class="totalLabel">Total: </label>
+    <label class="resultTotal">{{valorTotal | currency:'BRL':true }}</label>
+    <button>Continuar</button>
+  </div>
+</div>

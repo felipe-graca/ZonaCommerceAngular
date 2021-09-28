@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dialog-responsive {
+  width: 50%;
+}
+
+.mat-dialog-container{
+  padding: 0!important;
+  padding-top: 16px!important;
+  padding-bottom: 16px!important;
+}
+
+
+@media only screen and (max-width: 760px) {
+  .dialog-responsive {
+      width: 100%;
+  }
+}

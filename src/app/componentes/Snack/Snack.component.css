@@ -1,0 +1,13 @@
+p{
+  margin-top: 20px;
+}
+
+.main{
+  display: flex;
+}
+
+mat-icon{
+  margin-top: 15px;
+  margin-left: 5px;
+  color: rgb(0, 255, 0);
+}

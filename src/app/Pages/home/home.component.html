@@ -1,0 +1,16 @@
+<div class="main">
+  <section></section>
+  <h1>Seleção de Produtos</h1>
+  <div class="produtosContainer" id="style-2">
+    <div class="produtoCard" *ngFor="let item of data">
+      <img class="imgCard" src="{{item.img}}">
+      <div class="controlPriceName">
+        <div class="nomeProdutoContainer">
+          <label class="nomeProduto">{{item.nome}}</label>
+        </div>
+        <label class="precoProduto">{{item.preco | currency:'BRL':true }}</label>
+      </div>
+      <mat-icon class="iconCart" (click)="openSnackBar(item.id)">add_shopping_cart</mat-icon>
+    </div>
+  </div>
+</div>
