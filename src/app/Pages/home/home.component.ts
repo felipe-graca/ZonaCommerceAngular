@@ -13,7 +13,7 @@ import { Carrinho } from 'src/app/https/models/carrinho';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar, private homeService: HomeServiceService) { }
+  constructor(private _snackBar: MatSnackBar, private homeService: HomeServiceService) {localStorage.removeItem('tokenJet')}
 
   durationInSeconds = 5;
 
@@ -26,8 +26,6 @@ export class HomeComponent implements OnInit {
       duration: this.durationInSeconds * 1000,
     });
 
-    console.log(this.produtos[0]);
-    console.log(id);
     for(var i = 0; i < this.produtos.length; i++){
       if(this.produtos[i]["idProduto"] == id){
         this.itemCart = {
@@ -38,8 +36,6 @@ export class HomeComponent implements OnInit {
         }
       }
     }
-    console.log(this.itemCart);
-
     this.homeService.addItemInCart(this.itemCart);
   }
 
@@ -48,14 +44,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.homeService.getProducts().subscribe((result) => {
       this.produtos = result;
-      console.log(result);
       for(var i = 0; i < this.produtos.length; i++){
-        console.log(result[i]["idProduto"]);
         this.data.push(
           {'id': this.produtos[i]["idProduto"], 'nome': this.produtos[i]["nomeProduto"], 'preco': this.produtos[i]["valorProduto"], 'img': this.produtos[i]["urlImg"] }
         )
-        console.log(this.data);
-
       }
     });
   }

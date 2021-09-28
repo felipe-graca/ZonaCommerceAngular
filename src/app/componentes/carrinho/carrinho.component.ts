@@ -38,7 +38,6 @@ export class CarrinhoComponent implements OnInit {
       for(var i = 0; i < this.data.length; i++){
         this.carrinhoService.getProductsById(this.data[i]["id"], this.data[i]["idProduto"]).subscribe(result => {
           this.valorTotal += Number((result["valor"] * result["quantidade"]));
-          console.log((this.valorTotal));
           this.products.push({
             "idItem": result["idItem"],
             "idProduto": result["idProduto"],
@@ -57,7 +56,6 @@ export class CarrinhoComponent implements OnInit {
   amountData:any = [];
 
   increment(id: number){
-    console.log(this.products);
     for(var i = 0; i < this.products.length; i++){
       if(this.products[i]["idItem"] == id){
         this.amountData = {
@@ -70,13 +68,11 @@ export class CarrinhoComponent implements OnInit {
       this.valorTotal += Number(this.amountData["valorProduto"]);
       }
     }
-    console.log(this.amountData);
-    this.carrinhoService.editAmount(id, this.amountData).subscribe(result => console.log(result));
+    this.carrinhoService.editAmount(id, this.amountData).subscribe(result => {});
     this.productsAmount = [];
   }
 
   decrement(id: number){
-    console.log(this.products);
     for(var i = 0; i < this.products.length; i++){
       if(this.products[i]["idItem"] == id){
         this.amountData = {
@@ -89,19 +85,16 @@ export class CarrinhoComponent implements OnInit {
       this.valorTotal -= Number(this.amountData["valorProduto"]);
       }
     }
-    console.log(this.amountData);
-    this.carrinhoService.editAmount(id, this.amountData).subscribe(result => console.log(result));
+    this.carrinhoService.editAmount(id, this.amountData).subscribe(result => {});
     this.productsAmount = [];
   }
 
   deleteItem(id: any){
-    console.log(id);
     this.carrinhoService.deleteProductInCart(id).subscribe(result => {
-      console.log(this.products);
     });
     for(var i = 0; i < this.products.length; i++){
       if(this.products[i]['idItem'] == id){
-        this.valorTotal = this.valorTotal - this.products[i]["valor"];
+        this.valorTotal = this.valorTotal - (this.products[i]["valor"] * this.products[i]["quantidade"]);
         this.products.splice(i, 1);
       }
     }
