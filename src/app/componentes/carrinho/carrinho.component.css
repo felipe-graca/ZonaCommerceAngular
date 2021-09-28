@@ -145,6 +145,9 @@ mat-icon{
 .infoContainer{
   height: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
   width: 90%;
 }
 
@@ -220,5 +223,16 @@ button{
     width: 98%;
   }
 
+}
+
+.myButton{
+  height: 50px;
+  box-shadow: 0 0 0.5em black;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: gray;
+}
+.myButton:active{
+  box-shadow: 0 0 0.1em black;
 }
 

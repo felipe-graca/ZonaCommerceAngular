@@ -1,0 +1,28 @@
+<div class="main">
+  <section></section>
+  <h1>Finalizando Compra</h1>
+  <div class="registerContainer">
+
+    <div class="formContainer">
+      <form [formGroup]="register" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="mb-3">
+            <h5 class="card-title"><i class="bi bi-person-fill"></i>Nome</h5>
+            <input type="text" class="form-control"  placeholder="Seu Nome" formControlName="name">
+          </div>
+          <div class="mb-3">
+            <h5 class="card-title"><i class="bi bi-person-fill"></i>Telefone</h5>
+            <input type="telefone" class="form-control" mask='(00) 00000-0000' placeholder="(00) 90000-0000" formControlName="phone">
+          </div>
+        </div>
+        <div class="mb-3">
+          <h5 class="card-title"><i class="bi bi-person-fill"></i>Email</h5>
+          <input class="form-control" placeholder="Seu Email" formControlName="mail">
+        </div>
+        <div class="buttonContainer">
+          <button type="submit" id="loginButton" class="btn btn-primary purpleColor" [disabled]="register.invalid">Finalizar Compra</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

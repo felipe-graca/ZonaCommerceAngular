@@ -3,6 +3,8 @@ import { CarrinhoService } from './../../https/carrinho.service';
 import { Component, OnInit } from '@angular/core';
 import { Carrinho } from 'src/app/https/models/carrinho';
 import { timer } from 'rxjs';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-carrinho',
@@ -11,7 +13,7 @@ import { timer } from 'rxjs';
 })
 export class CarrinhoComponent implements OnInit {
 
-  constructor(private carrinhoService: CarrinhoService) { }
+  constructor(private carrinhoService: CarrinhoService, private route: Router, public dialog: MatDialog) { }
 
   carrinho: Carrinho[];
   products:any = [];
@@ -103,5 +105,11 @@ export class CarrinhoComponent implements OnInit {
         this.products.splice(i, 1);
       }
     }
+  }
+
+
+  toRoute(){
+    this.dialog.closeAll();
+    this.route.navigate(['/register']);
   }
 }

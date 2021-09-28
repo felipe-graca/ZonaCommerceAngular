@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {LOCALE_ID} from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { RegisterComponent } from './Pages/register/register.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -24,7 +28,8 @@ registerLocaleData(localePt);
     NaviBarComponent,
     HomeComponent,
     SnackComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,11 @@ registerLocaleData(localePt);
     NgbModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
+    BrowserModule,
   ],
   providers: [
     {

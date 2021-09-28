@@ -18,8 +18,10 @@
     </div>
   </div>
   <div class="infoContainer">
-    <label class="totalLabel">Total: </label>
-    <label class="resultTotal">{{valorTotal | currency:'BRL':true }}</label>
-    <button>Continuar</button>
+    <div class="valorContainer">
+      <label class="totalLabel">Total: </label>
+      <label class="resultTotal">{{valorTotal | currency:'BRL':true }}</label>
+    </div>
+    <button class="myButton" (click)="toRoute()">Finalizar Compra</button>
   </div>
 </div>
