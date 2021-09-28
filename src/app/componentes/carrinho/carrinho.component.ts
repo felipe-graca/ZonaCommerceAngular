@@ -39,6 +39,7 @@ export class CarrinhoComponent implements OnInit {
           console.log((this.valorTotal));
           this.products.push({
             "idItem": result["idItem"],
+            "idProduto": result["idProduto"],
             "name": result["nameof"],
             "quantidade": result["quantidade"],
             "urlImg": result["urlImg"],
@@ -51,12 +52,42 @@ export class CarrinhoComponent implements OnInit {
 
   quantidade = 0;
 
-  increment(){
-    this.quantidade++;
+  amountData:any = [];
+
+  increment(id: number){
+    console.log(this.products);
+    for(var i = 0; i < this.products.length; i++){
+      if(this.products[i]["idItem"] == id){
+        this.amountData = {
+          "idItem": this.products[i]["idItem"],
+          "idProduto":  this.products[i]["idProduto"],
+          "quantidadeProduto":  this.products[i]["quantidade"] + 1,
+          "valorProduto":  this.products[i]["valor"]
+      };
+      this.products[i]["quantidade"] = this.amountData["quantidadeProduto"];
+      }
+    }
+    console.log(this.amountData);
+    this.carrinhoService.editAmount(id, this.amountData).subscribe(result => console.log(result));
+    this.productsAmount = [];
   }
 
-  decrement(){
-    this.quantidade--;
+  decrement(id: number){
+    console.log(this.products);
+    for(var i = 0; i < this.products.length; i++){
+      if(this.products[i]["idItem"] == id){
+        this.amountData = {
+          "idItem": this.products[i]["idItem"],
+          "idProduto":  this.products[i]["idProduto"],
+          "quantidadeProduto":  this.products[i]["quantidade"] - 1,
+          "valorProduto":  this.products[i]["valor"]
+      };
+      this.products[i]["quantidade"] = this.amountData["quantidadeProduto"];
+      }
+    }
+    console.log(this.amountData);
+    this.carrinhoService.editAmount(id, this.amountData).subscribe(result => console.log(result));
+    this.productsAmount = [];
   }
 
   deleteItem(id: any){

@@ -29,4 +29,9 @@ export class CarrinhoService {
     return this.http.delete<any>(`${this.endPoint}/${id}`);
   }
 
+  editAmount(id: number, body: any[]){
+    console.log(body);
+    return this.http.put<Carrinho[]>(`${this.endPoint}/${id}`, body);
+  }
+
 }

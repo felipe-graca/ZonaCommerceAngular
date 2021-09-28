@@ -9,9 +9,9 @@
         <label class="valorProdutoMobile">{{item.valor | currency:'BRL':true }}</label>
       </div>
       <div class="quantidadeContainer">
-        <button><mat-icon (click)="increment()">keyboard_arrow_up</mat-icon></button>
+        <button><mat-icon (click)="increment(item.idItem)">keyboard_arrow_up</mat-icon></button>
         <label class="quantidade">{{item.quantidade}}</label>
-        <button><mat-icon (click)="decrement()">keyboard_arrow_down</mat-icon></button>
+        <button><mat-icon (click)="decrement(item.idItem)">keyboard_arrow_down</mat-icon></button>
       </div>
       <label class="valorProduto">{{item.valor | currency:'BRL':true }}</label>
       <mat-icon class="deleteIcon" (click)="deleteItem(item.idItem)">delete_forever</mat-icon>
