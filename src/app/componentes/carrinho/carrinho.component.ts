@@ -35,7 +35,7 @@ export class CarrinhoComponent implements OnInit {
 
       for(var i = 0; i < this.data.length; i++){
         this.carrinhoService.getProductsById(this.data[i]["id"], this.data[i]["idProduto"]).subscribe(result => {
-          this.valorTotal += Number(result["valor"]);
+          this.valorTotal += Number((result["valor"] * result["quantidade"]));
           console.log((this.valorTotal));
           this.products.push({
             "idItem": result["idItem"],
@@ -65,6 +65,7 @@ export class CarrinhoComponent implements OnInit {
           "valorProduto":  this.products[i]["valor"]
       };
       this.products[i]["quantidade"] = this.amountData["quantidadeProduto"];
+      this.valorTotal += Number(this.amountData["valorProduto"]);
       }
     }
     console.log(this.amountData);
@@ -83,6 +84,7 @@ export class CarrinhoComponent implements OnInit {
           "valorProduto":  this.products[i]["valor"]
       };
       this.products[i]["quantidade"] = this.amountData["quantidadeProduto"];
+      this.valorTotal -= Number(this.amountData["valorProduto"]);
       }
     }
     console.log(this.amountData);
