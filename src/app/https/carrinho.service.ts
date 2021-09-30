@@ -24,6 +24,10 @@ export class CarrinhoService {
     return this.http.get<CartProdutos>(`${this.endPoint}/${idItem}/${idProduct}`);
   }
 
+  getProductsByIdProduct(idProduct: any){
+    return this.http.get<Carrinho>(`${this.endPoint}/${idProduct}`);
+  }
+
 
   deleteProductInCart(id: any){
     return this.http.delete<any>(`${this.endPoint}/${id}`);

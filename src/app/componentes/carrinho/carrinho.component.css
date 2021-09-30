@@ -9,16 +9,23 @@
 
 .imgCard{
   height: 120px;
-  margin-left: 20px;
+  margin: 10px;
 }
+
+
+.quantidadeDeleteContainer{
+  column-gap: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 
 .valorProduto{
   color: rgba(31, 31, 31, 0.76);
-  font-weight: 400!important;
-  margin-top: 8px;
-  width: 33%;
-  min-width: 150px;
-  font-size: 30px;
+  font-weight: 300!important;
+  padding-bottom: 10px;
+  font-size: 19px;
 }
 .valorProdutoMobile{
   color: rgba(31, 31, 31, 0.76);
@@ -37,15 +44,12 @@ mat-icon{
 
 .deleteIcon{
   font-size: 40px!important;
-  margin-left: 30px;
-  margin-bottom: 20px;
 }
 
 .precoProduto{
   margin-top: -7px;
   font-size: 20px;
 
-  width: 100px;
   display: flex;
   border: 1 solid black;
 }
@@ -76,15 +80,16 @@ mat-icon{
 }
 
 .produtosContainer{
-  max-width: 90%;
   width: 90%;
-  max-height: 90%;
   height: 90%;
   overflow-y: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  row-gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 50px;
   padding: 20px 0 20px 0;
 }
 
@@ -94,10 +99,11 @@ mat-icon{
 
 .produtoCard{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   box-shadow: 0 0 0.8em black;
   border-radius: 5px;
-  width: 90%;
+  width: 200px;
+  height: 250px;
   align-items: center;
   background-color: white;
 }
@@ -119,13 +125,10 @@ mat-icon{
 }
 
 .nomeProduto{
-  font-size: 30px;
+  font-size: 18px;
   color: rgb(0, 0, 0);
   display: flex;
-  width: 250px;
-  display: flex;
   padding-left: 11px;
-  width: 100%!important;
 }
 
 .quantidadeLabel{
@@ -139,7 +142,20 @@ mat-icon{
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  width: 10%;
+  transform: scale(0.65);
+  margin-top: -18px;
+}
+
+.dividerRow{
+  width: 100%;
+  height: 1px;
+  background-color: rgb(70, 70, 70);
+  padding: 0.5px;
+}
+.dividerColumn{
+  height: 98%;
+  width: 1px;
+  background-color: rgb(70, 70, 70);
 }
 
 .infoContainer{
@@ -183,46 +199,6 @@ button{
 
 .valorProdutoMobile{
   display: none;
-}
-
-@media(max-width: 2000px) {
-  .imgCard{
-    height: 62px;
-    margin-left: 4px;
-    margin-top: 7px;
-  }
-  .produtoCard{
-    align-items: flex-start;
-  }
-  .nomeProduto{
-    justify-content: flex-start;
-    font-size: 17px;
-    width: 93px;
-    padding-left: 0;
-  }
-  .nomeProdutoContainer{
-    justify-content: flex-start;
-    padding: 3px 0px 0px 8px;
-  }
-  .valorProduto{
-    display: none;
-  }
-  .valorProdutoMobile{
-    display: inline;
-  }
-  .deleteIcon{
-    margin-left: 0;
-    margin-bottom: 0;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-top: 23px;
-  }
-  .produtoCard{
-    width: 98%;
-  }
-
 }
 
 .myButton{

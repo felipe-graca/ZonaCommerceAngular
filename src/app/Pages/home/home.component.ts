@@ -1,3 +1,4 @@
+import { CarrinhoService } from './../../https/carrinho.service';
 import { HomeServiceService } from './../../https/home-service.service';
 import { SnackComponent } from './../../componentes/Snack/Snack.component';
 import { Component, OnInit } from '@angular/core';
@@ -13,13 +14,14 @@ import { Carrinho } from 'src/app/https/models/carrinho';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar, private homeService: HomeServiceService) {localStorage.removeItem('tokenJet')}
+  constructor(private _snackBar: MatSnackBar, private homeService: HomeServiceService, private carrinhoService: CarrinhoService) {localStorage.removeItem('tokenJet')}
 
   durationInSeconds = 5;
 
   produtos: Produtos[];
   itemCart: Carrinho;
   data: any = [];
+  dataProduct: any = [];
 
   openSnackBar(id: number) {
     this._snackBar.openFromComponent(SnackComponent, {
@@ -36,7 +38,23 @@ export class HomeComponent implements OnInit {
         }
       }
     }
-    this.homeService.addItemInCart(this.itemCart);
+
+    this.carrinhoService.getProductsByIdProduct(id).subscribe(result => {
+      if(result == null){
+
+        this.homeService.addItemInCart(this.itemCart);
+
+      } else {
+        this.dataProduct = {
+          "idItem": result["idItem"],
+          "idProduto":  result["idProduto"],
+          "quantidadeProduto":  result["quantidadeProduto"] + 1,
+          "valorProduto":  result["valorProduto"]
+        };
+        this.carrinhoService.editAmount(result["idItem"], this.dataProduct).subscribe(result => {});
+        }
+      }
+    )
   }
 
 

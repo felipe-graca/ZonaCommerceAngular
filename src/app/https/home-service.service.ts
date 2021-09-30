@@ -20,14 +20,13 @@ export class HomeServiceService {
   }
 
   addItemInCart(itemCarrinho: any){
-    console.log(itemCarrinho);
     return this.http.post<Carrinho>(this.endPointCart, itemCarrinho, {
       headers: new HttpHeaders(
         {
           'Content-Type': 'application/json; charset=UTF-8',
         }
       )
-    }).subscribe(result => console.log(result));
+    }).subscribe();
   }
 
 }
