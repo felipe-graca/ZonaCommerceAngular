@@ -4,13 +4,12 @@
   <div class="produtosContainer" id="style-2">
     <div class="produtoCard" *ngFor="let item of data">
       <img class="imgCard" src="{{item.img}}">
-      <div class="controlPriceName">
-        <div class="nomeProdutoContainer">
-          <label class="nomeProduto">{{item.nome}}</label>
-        </div>
-        <label class="precoProduto">{{item.preco | currency:'BRL':true }}</label>
+      <label class="nomeProduto">{{item.nome}}</label>
+      <label class="precoProduto">{{item.preco | currency:'BRL':true }}</label>
+      <div class="addCart" (click)="openSnackBar(item.id)">
+        <mat-icon class="iconCart">add_shopping_cart</mat-icon>
+        <label class="addCartLabel">Adicionar ao Carrinho</label>
       </div>
-      <mat-icon class="iconCart" (click)="openSnackBar(item.id)">add_shopping_cart</mat-icon>
     </div>
   </div>
 </div>

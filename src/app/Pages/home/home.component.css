@@ -26,27 +26,45 @@ section:nth-last-of-type(1){
   margin-top: 30px;
   margin-bottom: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   row-gap: 40px;
+  column-gap: 60px;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .produtoCard{
-  box-shadow: 0 0 0.8em black;
+  box-shadow: 0 0 0.1em blue;
   border-radius: 5px;
-  width: 90%;
-  height: 180px;
   display: flex;
-  flex-direction: row;
+  height: 300px;
+  width: 300px;
+  flex-direction: column;
   align-items: center;
-}
-.produtoCard:hover{
-  transform: scale(1.05);
 }
 
 .imgCard{
+  margin-top: 10px;
   width: 145px;
-  margin-left: 20px;
+  height: 160px;
+}
+
+.nomeProduto{
+  font-weight: 300;
+  font-size: 25px;
+  margin: 10px 0px 0px 0px!important;
+}
+.nomeProduto:hover{
+  cursor: pointer;
+}
+
+
+.priceCart{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content:center;
 }
 
 
@@ -62,23 +80,50 @@ section:nth-last-of-type(1){
 
 
 .precoProduto{
-  font-size: 25px;
+  font-size: 20px;
   color: rgba(128, 128, 128, 0.719);
-  width: 22%;
+  width: 150px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.addCart{
   display: flex;
 }
 
+.addCart:hover{
+  color: red;
+}
+
+.addCart::selection{
+  box-shadow: 0 0 0.8em black;
+}
+
 .iconCart{
-  font-size: 50px;
-  width: 29%;
+  font-size: 40px;
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: flex-end;
+  height: 70px;
+  align-items: center;
 }
 
 .iconCart:hover{
   cursor: pointer;
-  color: red;
+}
+
+.addCartLabel{
+  font-size: 18px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.addCartLabel{
+  cursor: pointer;
 }
 
 .mat-form-field {
@@ -86,50 +131,8 @@ section:nth-last-of-type(1){
 }
 
 
-@media(max-width: 1196px){
-  .nomeProdutoContainer{
-    font-size: 25px;
-
-  }
-}
-
 
 .controlPriceName{
   display: flex;
   width: 100%;
 }
-
-@media(max-width: 990px){
-  .controlPriceName{
-    flex-direction: column;
-  }
-  .precoProduto{
-    margin-left: 21px;
-  }
-}
-
-@media (max-width: 576px) {
-  .imgCard{
-    width: 116px;
-  }
-}
-
-
-@media (max-width: 464px) {
-  .imgCard{
-    width: 86px;
-  }
-}
-
-@media (max-width: 426px) {
-  .imgCard{
-    width: 66px;
-  }
-  .precoProduto{
-    font-size: 18px;
-  }
-  .main h1{
-    font-size: 25px;
-  }
-}
-
